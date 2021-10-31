@@ -1,2 +1,2 @@
 # Curso de Typescript
-tsc --watch en consola del proyecto para compliar los archivos en cada vez que se guardan cambios (output -> archivos *.js de la carpeta dist).
+tsc --watch en consola para compliar los archivos cada vez que se guardan cambios (output -> archivos *.js de la carpeta dist).
