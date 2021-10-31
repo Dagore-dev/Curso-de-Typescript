@@ -31,14 +31,12 @@ var Orientation;
     Orientation[Orientation["Square"] = 2] = "Square";
     Orientation[Orientation["Panoramic"] = 3] = "Panoramic";
 })(Orientation || (Orientation = {}));
-//Por defecto el modificador de acceso de cada propiedad y método en la clase será public. El constructor en principio hay que mantenerlo público para que el resto de clases que lo hereden puedan emplearlo y modificarlo.
-var Entity = /** @class */ (function () {
+var Entity = (function () {
     function Entity(id, title) {
         this._id = id;
         this._title = title;
     }
     Object.defineProperty(Entity.prototype, "id", {
-        //Métodos getters y setters.
         get: function () {
             return this._id;
         },
@@ -55,14 +53,12 @@ var Entity = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    //Otros métodos públicos.
     Entity.prototype.toString = function () {
         return "Id: " + this.id + "\nTitle: " + this.title;
     };
     return Entity;
 }());
-//const tryEntity = new Entity(9, "WRONG");     //Intentar instanciar la clase hace que el compilador nos señale un error.
-var Album = /** @class */ (function (_super) {
+var Album = (function (_super) {
     __extends(Album, _super);
     function Album(id, title) {
         var _this = _super.call(this, id, title) || this;
@@ -79,13 +75,12 @@ var Album = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    //Usa getters y setters en un método público
     Album.prototype.addPicture = function (pic) {
         this.pictures = __spreadArray(__spreadArray([], this.pictures, true), [pic], false);
     };
     return Album;
 }(Entity));
-var Picture = /** @class */ (function (_super) {
+var Picture = (function (_super) {
     __extends(Picture, _super);
     function Picture(id, title, orientation) {
         var _this = _super.call(this, id, title) || this;
@@ -105,10 +100,10 @@ var Picture = /** @class */ (function (_super) {
     Picture.prototype.picSummary = function () {
         return this.toString() + ("\nOrientation: " + this.orientation);
     };
-    Picture.orientationOptions = Orientation; //Un elemento declarado como static se puede emplear directamente en la clase, sin necesidad de crear una instancia.
+    Picture.orientationOptions = Orientation;
     return Picture;
 }(Entity));
-var options = Picture.orientationOptions; //Lectura de una propiedad estática de la clase Picture.
+var options = Picture.orientationOptions;
 console.log(options);
 var birthDay = new Album(3, "Birthday");
 var newPic = new Picture(4, "Cake", Orientation.Square);

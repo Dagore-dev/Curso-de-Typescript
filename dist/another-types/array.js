@@ -8,11 +8,8 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-//Declaración explícita
 var users;
 users = ["David", "Dagore-dev", "Dagore"];
-//Declaración implícita
 var otherUsers = __spreadArray([], users, true);
-//Array<type>
 var picturesTitles;
 picturesTitles = ["Landscape", "Vacation time"];
